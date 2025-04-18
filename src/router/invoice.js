@@ -4,7 +4,7 @@ const { userAuth } = require("../middlewares/userAuth");
 
 const invoiceRouter = express.Router();
 
-invoiceRouter.post("/generate-invoice", userAuth, async (req, res) => {
+invoiceRouter.post("/api/generate-invoice", userAuth, async (req, res) => {
     try {
         const {
             invoiceNumber,
@@ -42,7 +42,7 @@ invoiceRouter.post("/generate-invoice", userAuth, async (req, res) => {
     }
 });
 
-invoiceRouter.get('/invoices', userAuth, async (req, res) => {
+invoiceRouter.get('/api/invoices', userAuth, async (req, res) => {
     try {
 
         const invoices = await Invoice.find({});
@@ -53,7 +53,7 @@ invoiceRouter.get('/invoices', userAuth, async (req, res) => {
     }
 });
 
-invoiceRouter.get('/preview/:id', userAuth, async (req, res) => {
+invoiceRouter.get('/api/preview/:id', userAuth, async (req, res) => {
     const { id } = req.params;
     try {
         const matchedInvoice = await Invoice.findById(id);

@@ -32,8 +32,8 @@ const { userRouter } = require('./router/user')
 
 // Use routers
 
-app.use('/', InvoiceRouter);
-app.use('/', userRouter);
+app.use('/api', InvoiceRouter);
+app.use('/api', userRouter);
 
 
 

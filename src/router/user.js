@@ -9,7 +9,7 @@ const { userAuth } = require('../middlewares/userAuth')
 
 const userRouter = express.Router()
 
-userRouter.post('/signup', async (req, res, next) => {
+userRouter.post('/api/signup', async (req, res, next) => {
 
     try {
         const userCount = await User.countDocuments()
@@ -45,7 +45,7 @@ userRouter.post('/signup', async (req, res, next) => {
     }
 })
 
-userRouter.post('/login', async (req, res) => {
+userRouter.post('/api/login', async (req, res) => {
     try {
         const { emailId, password } = req.body
         const user = await User.findOne({ emailId: emailId })
@@ -82,7 +82,7 @@ userRouter.post('/login', async (req, res) => {
         res.status(400).send(err.message)
     }
 })
-userRouter.post('/logout', async (req, res) => {
+userRouter.post('/api/logout', async (req, res) => {
 
     res.cookie('token', null, {
         httpOnly: true,
@@ -93,7 +93,7 @@ userRouter.post('/logout', async (req, res) => {
 
     res.send('logout successfully')
 })
-userRouter.get("/profile/view", userAuth, async (req, res) => {
+userRouter.get("/api/profile/view", userAuth, async (req, res) => {
     try {
         const user = req.user
         res.send(user)
