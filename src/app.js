@@ -7,8 +7,8 @@ const cors = require('cors');
 require("dotenv").config();
 
 app.use(cors({
-    origin: ' http://localhost:5173',
-    // origin: 'https://stock-management-kappa-ten.vercel.app',
+    // origin: ' http://localhost:5173',
+    origin: 'https://srleather-invoive.vercel.app',
 
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     // allowedHeaders: ['Content-Type ', 'Authorization'],
